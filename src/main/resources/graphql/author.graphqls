@@ -12,3 +12,8 @@ type Query {
 type Mutation {
     newAuthor(firstName: String!, lastName: String!) : Author!
 }
+
+schema {
+    query: Query,
+    mutation: Mutation
+}

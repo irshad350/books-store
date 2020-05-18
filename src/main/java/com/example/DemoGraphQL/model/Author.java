@@ -1,24 +1,23 @@
 package com.example.DemoGraphQL.model;
 
-import javax.persistence.*;
+import org.springframework.data.mongodb.core.mapping.Document;
+import org.springframework.data.annotation.Id;
 
-@Entity
+
+@Document
 public class Author {
-    @Id
-    @Column(name="author_id", nullable = false)
-    @GeneratedValue(strategy=GenerationType.AUTO)
-    private Long id;
 
-    @Column(name="author_first_name", nullable = false)
+    @Id
+    private String id;
+
     private String firstName;
 
-    @Column(name="author_last_name", nullable = false)
     private String lastName;
 
     public Author() {
     }
 
-    public Author(Long id) {
+    public Author(String id) {
         this.id = id;
     }
 
@@ -27,11 +26,11 @@ public class Author {
         this.lastName = lastName;
     }
 
-    public Long getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(String id) {
         this.id = id;
     }
 
