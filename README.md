@@ -6,7 +6,7 @@ You'll need
 [MongoDB](https://fastdl.mongodb.org/win32/mongodb-win32-x86_64-2012plus-4.2.6-signed.msi)
 
 
-To check the database or to [http://localhost:8080/graphiql](http://localhost:8080/graphiql) to start executing queries. For example:
+To check the database or to [http://localhost:9092/graphiql](http://localhost:8080/graphiql) to start executing queries. For example:
 ```
 {
   findAllBooks {
@@ -31,5 +31,70 @@ mutation {
     author: 1) {
       id title
   }
+}
+```
+
+```
+######################################## Query for New Author ########################################
+mutation ($one:String!, $two:String!) {
+  newAuthor (firstName:$one, lastName:$two) {
+    firstName
+    lastName
+    id
+  }
+}
+# INPUT #
+{
+  "one":"author_firstname",
+  "two":"author_lastname"
+}
+
+######################################## Query for New Book ########################################
+mutation ($title:String!, $isbn:String!, $pageCount:Int!) {
+  newBook(title: $title, isbn: $isbn, pageCount:$pageCount, author: "5ec2245fed342909d54abc2a") {
+    title
+  }
+}
+
+# INPUT #
+{
+  "title":"Best Java Book",
+  "isbn":"i don't know",
+  "pageCount":2000
+}
+
+######################################## Query for New Book with New Author ########################################
+mutation ($title:String!, $isbn:String!, $pageCount:Int!, $authorInput:AuthorInput!) {
+  newBookWithNewAuthor(title: $title, isbn: $isbn, pageCount:$pageCount, authorInput: $authorInput) {
+    title, 
+    author {
+      firstName
+    }
+  }
+}
+
+# INPUT #
+{
+  "title":"newbook",
+  "isbn":"newbook-isbn",
+  "pageCount":2000,
+  "authorInput": {
+    "firstName": "isd",
+    "lastName": "mhd"
+  }
+}
+
+######################################## Query for Update Book ########################################
+
+mutation {
+  updateBookPageCount(pageCount: 1344, id: "5ec2306600c92e6eb6cc0fee") {
+    id pageCount
+  }
+}
+
+######################################## Query for Delete Book ########################################
+
+mutation {
+  deleteBook(id: "5ec2306600c92e6eb6cc0fee")
 }
 ```
