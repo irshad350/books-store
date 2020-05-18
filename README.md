@@ -45,8 +45,8 @@ mutation ($one:String!, $two:String!) {
 }
 # INPUT #
 {
-  "one":"irshad1",
-  "two":"mohamad1"
+  "one":"author_firstname",
+  "two":"author_lastname"
 }
 
 ######################################## Query for New Book ########################################
