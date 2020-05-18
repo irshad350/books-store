@@ -63,6 +63,15 @@ public class Mutation implements GraphQLMutationResolver {
         return true;
     }
 
+    public boolean deleteAuthor(String id) {
+        Optional<Author> authorOptional = authorRepository.findById(id);
+        if(!authorOptional.isPresent()) {
+            throw new BookNotFoundException("The author to be deleted was not found", id);
+        }
+        authorRepository.delete(authorOptional.get());
+        return true;
+    }
+
     public Book updateBookPageCount(Integer pageCount, String id) {
         Optional<Book> bookOptional = bookRepository.findById(id);
         if(!bookOptional.isPresent()) {

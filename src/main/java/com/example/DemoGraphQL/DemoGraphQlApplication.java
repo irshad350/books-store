@@ -25,6 +25,22 @@ public class DemoGraphQlApplication {
     }
 
     @Bean
+    public BookResolver authorResolver(AuthorRepository authorRepository)
+    {
+        return new BookResolver(authorRepository);
+    }
+
+    @Bean
+    public Query query(AuthorRepository authorRepository, BookRepository bookRepository) {
+        return new Query(authorRepository, bookRepository);
+    }
+
+    @Bean
+    public Mutation mutation(AuthorRepository authorRepository, BookRepository bookRepository) {
+        return new Mutation(authorRepository, bookRepository);
+    }
+
+    @Bean
     public GraphQLErrorHandler errorHandler() {
         return new GraphQLErrorHandler() {
             @Override
@@ -48,21 +64,5 @@ public class DemoGraphQlApplication {
                 return !(error instanceof ExceptionWhileDataFetching || error instanceof Throwable);
             }
         };
-    }
-
-    @Bean
-    public BookResolver authorResolver(AuthorRepository authorRepository)
-    {
-        return new BookResolver(authorRepository);
-    }
-
-    @Bean
-    public Query query(AuthorRepository authorRepository, BookRepository bookRepository) {
-        return new Query(authorRepository, bookRepository);
-    }
-
-    @Bean
-    public Mutation mutation(AuthorRepository authorRepository, BookRepository bookRepository) {
-        return new Mutation(authorRepository, bookRepository);
     }
 }
