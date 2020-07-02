@@ -6,7 +6,7 @@ You'll need
 [MongoDB](https://fastdl.mongodb.org/win32/mongodb-win32-x86_64-2012plus-4.2.6-signed.msi)
 
 
-To check the database or to [http://localhost:9092/graphiql](http://localhost:8080/graphiql) to start executing queries. For example:
+Use [http://localhost:9092/graphiql](http://localhost:8080/graphiql) to start executing queries. For example:
 ```
 {
   findAllBooks {
