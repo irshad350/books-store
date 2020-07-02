@@ -1,5 +1,5 @@
 # graphql-java-spring-boot-mongodb-example
-Sample app for building graphql app with spring boot and mongodb. 
+Sample Books app is built with graphql, spring boot and mongodb. 
 
 You'll need 
 [Java 11](https://download.java.net/java/GA/jdk11/9/GPL/openjdk-11.0.2_windows-x64_bin.zip), 
@@ -7,6 +7,7 @@ You'll need
 
 
 Use [http://localhost:9092/graphiql](http://localhost:8080/graphiql) to start executing queries. For example:
+### Select Query for All books with authors
 ```
 {
   findAllBooks {
@@ -23,6 +24,7 @@ Use [http://localhost:9092/graphiql](http://localhost:8080/graphiql) to start ex
 ```
 
 Or:
+### Insert Query for new book with author id without variables
 ```
 mutation {
   newBook(
@@ -34,8 +36,8 @@ mutation {
 }
 ```
 
+### Insert Query for New Author
 ```
-######################################## Query for New Author ########################################
 mutation ($one:String!, $two:String!) {
   newAuthor (firstName:$one, lastName:$two) {
     firstName
@@ -49,7 +51,10 @@ mutation ($one:String!, $two:String!) {
   "two":"author_lastname"
 }
 
-######################################## Query for New Book ########################################
+```
+
+### Insert Query for New Book
+```
 mutation ($title:String!, $isbn:String!, $pageCount:Int!) {
   newBook(title: $title, isbn: $isbn, pageCount:$pageCount, author: "5ec2245fed342909d54abc2a") {
     title
@@ -62,8 +67,9 @@ mutation ($title:String!, $isbn:String!, $pageCount:Int!) {
   "isbn":"i don't know",
   "pageCount":2000
 }
-
-######################################## Query for New Book with New Author ########################################
+```
+### Insert Query for New Book with New Author
+```
 mutation ($title:String!, $isbn:String!, $pageCount:Int!, $authorInput:AuthorInput!) {
   newBookWithNewAuthor(title: $title, isbn: $isbn, pageCount:$pageCount, authorInput: $authorInput) {
     title, 
@@ -83,17 +89,18 @@ mutation ($title:String!, $isbn:String!, $pageCount:Int!, $authorInput:AuthorInp
     "lastName": "mhd"
   }
 }
-
-######################################## Query for Update Book ########################################
-
+```
+### Query for Update Book
+```
 mutation {
   updateBookPageCount(pageCount: 1344, id: "5ec2306600c92e6eb6cc0fee") {
     id pageCount
   }
 }
 
-######################################## Query for Delete Book ########################################
-
+```
+### Query for Delete Book
+```
 mutation {
   deleteBook(id: "5ec2306600c92e6eb6cc0fee")
 }
