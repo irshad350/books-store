@@ -1,6 +1,6 @@
-# graphql-java-spring-boot-mongodb-example with Docker(kubernetes will be added soon...)
+# Books-store
 
-Sample Books app is built with graphql, spring boot and mongodb.
+Sample Books app is built with graphql, spring boot, mongodb and Docker(Stay tuned for kubernetes).
 
 ## Run with Docker
 
