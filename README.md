@@ -4,7 +4,9 @@ Sample Books app is built with graphql, spring boot, mongodb and Docker(Stay tun
 
 ## Run with Docker
 
-If you have the docker-cli and docker-server installed in your mechine. You no need to install java 11 and mongodb.
+If you have the docker-desktop installed in your machine. You no need to install java 11 and mongodb.
+If you don't have the docker follow the [Docker-Desktop-Download](https://www.docker.com/get-started)
+
 ### Commands:
 cd {ProjectPath}/graphql-springboot-mongodb-master
 ```
@@ -14,16 +16,18 @@ docker-compose up -d
 
 ## Run without Docker
 
-You'll need 
+Prerequisites
 [Java 11](https://download.java.net/java/GA/jdk11/9/GPL/openjdk-11.0.2_windows-x64_bin.zip), 
 [MongoDB](https://fastdl.mongodb.org/win32/mongodb-win32-x86_64-2012plus-4.2.6-signed.msi)
 
 ### Steps to build jar file
-cd {ProjectPath}/graphql-springboot-mongodb-master
+cd {ProjectPath}/graphql-springboot-mongodb-master <br />
 mvn clean package
 
+## Graphql Queries
 
-Use [http://localhost:9092/graphiql](http://localhost:8080/graphiql) to start executing queries. For example:
+Use [http://localhost:9092/graphiql](http://localhost:8080/graphiql) to execut queries. <br />
+
 ### Select Query for All books with authors
 ```
 {
@@ -40,7 +44,6 @@ Use [http://localhost:9092/graphiql](http://localhost:8080/graphiql) to start ex
 }
 ```
 
-Or:
 ### Insert Query for new book with author id without variables
 ```
 mutation {
