@@ -8,7 +8,8 @@ If you have the docker-desktop installed in your machine. You no need to install
 If you don't have the docker follow the [Docker-Desktop-Download](https://www.docker.com/get-started)
 
 ### Commands:
-cd {ProjectPath}/graphql-springboot-mongodb-master
+cd {ProjectPath}/books-store <br />
+mvn clean package
 ```
 docker build -t api-docker-image .
 docker-compose up -d
@@ -21,7 +22,7 @@ Prerequisites
 [MongoDB](https://fastdl.mongodb.org/win32/mongodb-win32-x86_64-2012plus-4.2.6-signed.msi)
 
 ### Steps to build jar file
-cd {ProjectPath}/graphql-springboot-mongodb-master <br />
+cd {ProjectPath}/books-store <br />
 mvn clean package
 
 ## Graphql Queries
