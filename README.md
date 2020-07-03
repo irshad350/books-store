@@ -1,9 +1,26 @@
-# graphql-java-spring-boot-mongodb-example
-Sample Books app is built with graphql, spring boot and mongodb. 
+# graphql-java-spring-boot-mongodb-example with Docker(kubernetes will be added soon...)
+
+Sample Books app is built with graphql, spring boot and mongodb.
+
+## Run with Docker
+
+If you have the docker-cli and docker-server installed in your mechine. You no need to install java 11 and mongodb.
+### Commands:
+cd {ProjectPath}/graphql-springboot-mongodb-master
+```
+docker build -t api-docker-image .
+docker-compose up -d
+```
+
+## Run without Docker
 
 You'll need 
 [Java 11](https://download.java.net/java/GA/jdk11/9/GPL/openjdk-11.0.2_windows-x64_bin.zip), 
 [MongoDB](https://fastdl.mongodb.org/win32/mongodb-win32-x86_64-2012plus-4.2.6-signed.msi)
+
+### Steps to build jar file
+cd {ProjectPath}/graphql-springboot-mongodb-master
+mvn clean package
 
 
 Use [http://localhost:9092/graphiql](http://localhost:8080/graphiql) to start executing queries. For example:
