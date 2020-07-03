@@ -1,0 +1,16 @@
+version: "3"
+services:
+  mongo-server:
+    image: "mongo:4.0.3"
+    container_name: "mongo-server"
+    ports:
+      - "27017:27017"
+    restart: always
+  api:
+    command: "ls -l"
+    restart: on-failure
+    image: api-docker-image
+    ports:
+      - 9091:9092
+    links:
+      - mongo-server
