@@ -9,7 +9,7 @@ If you don't have the docker follow the [Docker-Desktop-Download](https://www.do
 
 ### Commands:
 cd {ProjectPath}/books-store <br />
-mvn clean package
+<b>mvn clean package</b>
 ```
 docker build -t api-docker-image .
 docker-compose up -d
@@ -23,7 +23,8 @@ Prerequisites
 
 ### Steps to build jar file
 cd {ProjectPath}/books-store <br />
-mvn clean package
+<b>mvn clean package</b> <br />
+<b>mvn spring-boot:run</b>
 
 ## Graphql Queries
 
